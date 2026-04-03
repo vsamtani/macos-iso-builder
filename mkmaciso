@@ -828,7 +828,7 @@ direct_download_10_13_10_15() {
     sudo cp -Rp "$WORK_DIR/BaseSystem.chunklist" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/InstallInfo.plist" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/InstallESDDmg.pkg" "$shared_support/"
-    sudo cp -Rp "$WORK_DIR/InstallESDDmg.pkg" "$shared_support/InstallESD.dmg"
+    # sudo cp -Rp "$WORK_DIR/InstallESDDmg.pkg" "$shared_support/InstallESD.dmg"
 	sudo cp -Rp "$WORK_DIR/InstallESDDmg.chunklist" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/AppleDiagnostics.dmg" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/AppleDiagnostics.chunklist" "$shared_support/"
