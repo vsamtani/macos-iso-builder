@@ -782,6 +782,7 @@ direct_download_10_13_10_15() {
         "BaseSystem.chunklist"
         "InstallInfo.plist"
         "InstallESDDmg.pkg"
+		"InstallESDDmg.chunklist"
         "AppleDiagnostics.dmg"
         "AppleDiagnostics.chunklist"
     )
@@ -814,10 +815,10 @@ direct_download_10_13_10_15() {
     sudo mkdir -p "$shared_support"
     
     # Rename InstallESDDmg.pkg to InstallESD.dmg
-    mv "$WORK_DIR/InstallESDDmg.pkg" "$WORK_DIR/InstallESD.dmg"
+    # mv "$WORK_DIR/InstallESDDmg.pkg" "$WORK_DIR/InstallESD.dmg"
     
     # Fix InstallInfo.plist
-    sed -e "s/InstallESDDmg\.pkg/InstallESD.dmg/" \
+    # sed -e "s/InstallESDDmg\.pkg/InstallESD.dmg/" \
         -e "s/pkg\.InstallESDDmg/dmg.InstallESD/" \
         -e "/InstallESD\.dmg/{n;N;N;N;d;}" \
         "$WORK_DIR/InstallInfo.plist" > "$WORK_DIR/InstallInfo_fixed.plist"
@@ -825,8 +826,10 @@ direct_download_10_13_10_15() {
     # Copy files to SharedSupport
     sudo cp -Rp "$WORK_DIR/BaseSystem.dmg" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/BaseSystem.chunklist" "$shared_support/"
-    sudo cp -Rp "$WORK_DIR/InstallInfo_fixed.plist" "$shared_support/InstallInfo.plist"
-    sudo cp -Rp "$WORK_DIR/InstallESD.dmg" "$shared_support/"
+    sudo cp -Rp "$WORK_DIR/InstallInfo.plist" "$shared_support/"
+    sudo cp -Rp "$WORK_DIR/InstallESDDmg.pkg" "$shared_support/"
+    sudo cp -Rp "$WORK_DIR/InstallESDDmg.pkg" "$shared_support/InstallESD.dmg"
+	sudo cp -Rp "$WORK_DIR/InstallESDDmg.chunklist" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/AppleDiagnostics.dmg" "$shared_support/"
     sudo cp -Rp "$WORK_DIR/AppleDiagnostics.chunklist" "$shared_support/"
     
