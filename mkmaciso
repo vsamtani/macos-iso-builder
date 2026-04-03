@@ -819,9 +819,9 @@ direct_download_10_13_10_15() {
     
     # Fix InstallInfo.plist
     # sed -e "s/InstallESDDmg\.pkg/InstallESD.dmg/" \
-        -e "s/pkg\.InstallESDDmg/dmg.InstallESD/" \
-        -e "/InstallESD\.dmg/{n;N;N;N;d;}" \
-        "$WORK_DIR/InstallInfo.plist" > "$WORK_DIR/InstallInfo_fixed.plist"
+	#   -e "s/pkg\.InstallESDDmg/dmg.InstallESD/" \
+    #   -e "/InstallESD\.dmg/{n;N;N;N;d;}" \
+    #   "$WORK_DIR/InstallInfo.plist" > "$WORK_DIR/InstallInfo_fixed.plist"
     
     # Copy files to SharedSupport
     sudo cp -Rp "$WORK_DIR/BaseSystem.dmg" "$shared_support/"
