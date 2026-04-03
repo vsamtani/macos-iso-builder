@@ -881,7 +881,13 @@ download_modern_macos() {
             direct_download_10_13_10_15 "$version_num"
             return $?
         fi
-    
+
+		# Prefer direct download
+		log_info "Forcing direct download"
+	    log_info "Preferring direct download for macOS $version_name"
+	    direct_download_10_13_10_15 "$version_num"
+		return $?
+
     fi
     
     # Use softwareupdate for macOS Big Sur and newer
